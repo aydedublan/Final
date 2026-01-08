@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro - Planeta Vivo</title>
+    <link rel="stylesheet" href="/static/estilos.css">
+</head>
+<body>
+
+<div class="header">
+    <h1>Planeta vivo</h1>
+</div>
+
+<div class="contenedor">
+
+    <form method="POST" action="/registro">
+
+        <label>Nombre:</label><br>
+        <input type="text" name="nombre" required><br><br>
+
+        <label>Correo:</label><br>
+        <input type="email" name="correo" required><br><br>
+
+        <label>Contraseña:</label><br>
+        <input type="password" name="contraseña" required><br><br>
+
+        <button type="submit">Registrarme</button>
+
+        <br><br>
+
+        <a href="/">
+            <button type="button">Regresar</button>
+        </a>
+
+    </form>
+
+</div>
+
+</body>
+</html>
+

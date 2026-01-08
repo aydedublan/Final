@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Retos ecológicos</title>
+    <link rel="stylesheet" href="/static/estilos.css">
+</head>
+<body>
+
+<div class="header">
+    <h1>Retos ecológicos</h1>
+</div>
+
+<div class="contenedor">
+
+    <a href="/menu"><button>Regresar</button></a>
+    <br><br>
+
+    <h2>🌱 Reto actual</h2>
+
+    <p class="texto-justificado">
+        {{ reto }}
+    </p>
+
+    <form method="POST">
+        <button name="accion" value="si">✅ Sí lo hice</button>
+        <br><br>
+        <button name="accion" value="no">❌ No lo hice</button>
+        <br><br>
+        <button name="accion" value="siguiente">🔄 Siguiente reto</button>
+    </form>
+
+    {% if mensaje %}
+        <br>
+        <p><strong>{{ mensaje }}</strong></p>
+    {% endif %}
+
+    <p>⭐ Puntos acumulados: {{ puntos }}</p>
+
+</div>
+     
+    <a href="/menu"><button>Regresar</button></a>
+    
+</body>
+</html>

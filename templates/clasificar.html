@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Clasificar residuos</title>
+    <link rel="stylesheet" href="/static/estilos.css">
+</head>
+<body>
+
+<div class="header">
+    <h1>Clasificación de residuos</h1>
+</div>
+
+<div class="contenedor">
+
+    <a href="/menu"><button>Regresar</button></a>
+    <br><br>
+
+    <form method="POST">
+        <label><strong>Selecciona el tipo de residuo:</strong></label>
+        <br><br>
+
+        <select name="residuo" required>
+            <option value="">-- Selecciona --</option>
+            <option value="plastico">Plástico</option>
+            <option value="papel">Papel / Cartón</option>
+            <option value="vidrio">Vidrio</option>
+            <option value="metal">Metal</option>
+            <option value="organico">Orgánico</option>
+            <option value="no_reciclable">No reciclable</option>
+        </select>
+
+        <br><br>
+        <button type="submit">¿Cómo reciclar?</button>
+    </form>
+
+    {% if instruccion %}
+        <br><br>
+        <p class="texto-justificado">
+            🌱 <strong>Recomendación:</strong><br>
+            {{ instruccion }}
+        </p>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
+

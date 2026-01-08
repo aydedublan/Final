@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nivel de reciclaje</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='estilos.css') }}">
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        input[type=range] {
+            width: 60%;
+            accent-color: green;
+        }
+
+        .mensaje {
+            font-size: 18px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .bajo {
+            color: red;
+        }
+
+        .alto {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>¿Qué tanto reciclas?</h2>
+
+    <br>
+
+    <input 
+        type="range" 
+        min="1" 
+        max="10" 
+        value="5"
+        id="nivel"
+        oninput="actualizarMensaje()"
+    >
+
+    <p>Nivel de reciclaje: <strong id="valor">5</strong> / 10</p>
+
+    <p id="mensaje" class="mensaje"></p>
+
+    <script>
+        function actualizarMensaje() {
+            const nivel = document.getElementById("nivel").value;
+            const valor = document.getElementById("valor");
+            const mensaje = document.getElementById("mensaje");
+
+            valor.innerText = nivel;
+
+            if (nivel < 5) {
+                mensaje.innerText = "😢 Qué triste, debes reciclar un poco más para ayudar al planeta.";
+                mensaje.className = "mensaje bajo";
+            } else if (nivel == 5) {
+                mensaje.innerText = "🙂 Vas bien, pero aún puedes mejorar tus hábitos de reciclaje.";
+                mensaje.className = "mensaje";
+            } else {
+                mensaje.innerText = "🎉 ¡Felicidades! Estás haciendo un gran trabajo reciclando.";
+                mensaje.className = "mensaje alto";
+            }
+        }
+
+        // Mostrar mensaje inicial
+        actualizarMensaje();
+    </script>
+    
+    <img 
+  src="{{ url_for('static', filename='imagenes/nivel_reciclaje.png') }}" 
+  alt="Reciclaje inteligente"
+  style="width:250px; display:block; margin:20px auto;"
+>
+
+    <a href="/menu"><button>Regresar</button></a>
+
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz de reciclaje</title>
+    <link rel="stylesheet" href="/static/estilos.css">
+</head>
+<body>
+
+<div class="header">
+    <h1>Quiz de reciclaje</h1>
+</div>
+
+<div class="contenedor">
+
+    <br><br>
+
+    <form method="POST">
+
+        <p><strong>1️⃣ ¿Dónde se recicla el plástico?</strong></p>
+        <input type="radio" name="p1" value="plastico"> Contenedor amarillo<br>
+        <input type="radio" name="p1" value="vidrio"> Contenedor verde<br>
+        <input type="radio" name="p1" value="papel"> Contenedor azul<br><br>
+
+        <p><strong>2️⃣ ¿Qué color es el contenedor del papel?</strong></p>
+        <input type="radio" name="p2" value="azul"> Azul<br>
+        <input type="radio" name="p2" value="verde"> Verde<br>
+        <input type="radio" name="p2" value="amarillo"> Amarillo<br><br>
+
+        <p><strong>3️⃣ ¿Se debe reciclar un envase sucio?</strong></p>
+        <input type="radio" name="p3" value="si"> Sí<br>
+        <input type="radio" name="p3" value="no"> No<br><br>
+
+        <button type="submit">Enviar respuestas</button>
+
+    </form>
+
+    {% if resultado %}
+        <br>
+        <h2>✅ Resultado</h2>
+        <p>Obtuviste <strong>{{ puntaje }} / 3</strong> respuestas correctas.</p>
+
+        {% if puntaje == 3 %}
+            <p>🌟 ¡Excelente! Sabes reciclar muy bien.</p>
+        {% elif puntaje == 2 %}
+            <p>👍 ¡Muy bien! Solo te faltó una.</p>
+        {% else %}
+            <p>📘 Sigue aprendiendo, cada intento cuenta.</p>
+        {% endif %}
+    {% endif %}
+
+</div>
+       
+
+    <a href="/menu"><button>Regresar</button></a>
+
+</body>
+</html>
+
+

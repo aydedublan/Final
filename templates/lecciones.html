@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mini lecciones de reciclaje</title>
+    <link rel="stylesheet" href="/static/estilos.css">
+
+    <style>
+        .texto-justificado {
+            text-align: justify;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Mini lecciones de reciclaje</h1>
+</div>
+
+<div class="contenedor">
+
+    <br><br>
+
+    {% set lecciones = [
+        {
+            "titulo": "Lección 1: Reduce antes de reciclar",
+            "contenido": "El reciclaje inteligente comienza reduciendo el consumo. Evita productos de un solo uso y elige artículos reutilizables para disminuir la cantidad de residuos."
+        },
+        {
+            "titulo": "Lección 2: Separa correctamente los residuos",
+            "contenido": "Clasificar los residuos por tipo permite que los materiales puedan reciclarse de forma eficiente y evita la contaminación de otros desechos."
+        },
+        {
+            "titulo": "Lección 3: Limpia los materiales reciclables",
+            "contenido": "Enjuagar envases y botellas antes de reciclar ayuda a mantener limpios los materiales y facilita su reutilización en los centros de reciclaje."
+        },
+        {
+            "titulo": "Lección 4: Reutiliza de forma creativa",
+            "contenido": "Antes de desechar un objeto, piensa si puede tener un segundo uso. Reutilizar reduce la necesidad de producir nuevos materiales."
+        },
+        {
+            "titulo": "Lección 5: Maneja residuos especiales correctamente",
+            "contenido": "Pilas, electrónicos, focos y aceite usado deben llevarse a centros de acopio especializados para evitar daños al medio ambiente."
+        }
+    ] %}
+
+    {% for leccion in lecciones %}
+        <h2 style="text-align:left;">{{ leccion.titulo }}</h2>
+        <p class="texto-justificado">
+            {{ leccion.contenido }}
+        </p>
+        <hr>
+    {% endfor %}
+
+    <p class="texto-justificado">
+        🌍 <strong>Reflexión:</strong><br>
+        Cada acción que realizas, por pequeña que parezca, tiene un impacto en el planeta.
+        Practicar el reciclaje inteligente es clave para un futuro más sostenible.
+    </p>
+
+</div>
+       <img src="/static/imagenes/1.png" alt="Lecciones de reciclaje" class="imagen">
+
+    <a href="/menu"><button>Regresar</button></a>
+
+</body>
+</html>

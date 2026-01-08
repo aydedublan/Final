@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Planeta Vivo</title>
+
+    <link rel="stylesheet" href="/static/estilos.css">
+</head>
+<body>
+
+<div class="header">
+    <h1 style="font-family: Verdana, Arial, sans-serif;">🌿 Planeta Vivo 🌎</h1>
+</div>
+
+<div class="contenedor">
+
+    <h2 style="font-family: Verdana, Arial, sans-serif;">Bienvenido a Planeta Vivo</h2>
+
+    <p style="font-family: Verdana, Arial, sans-serif;">
+        En <b>Planeta Vivo</b> impulsamos el reciclaje inteligente, una forma moderna y tecnológica
+        de cuidar el planeta. A través de soluciones digitales, sensores y clasificación automatizada,
+        hacemos que reciclar sea más fácil, eficiente y sostenible para todos.
+    </p>
+
+    <img src="{{ url_for('static', filename='imagenes/1.png') }}" 
+         alt="Imagen Planeta Vivo" 
+         style="width: 300px; display:block; margin: 20px auto;">
+
+    
+    <a href="/registro"><button>Registrarme</button></a>
+    <br>
+
+   
+    <a href="/login"><button>Iniciar sesión</button></a>
+
+</div>
+
+</body>
+</html>
+
+
