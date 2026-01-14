@@ -59,18 +59,17 @@
             valor.innerText = nivel;
 
             if (nivel < 5) {
-                mensaje.innerText = "😢 Qué triste, debes reciclar un poco más para ayudar al planeta.";
+                mensaje.innerText = " Qué triste, debes reciclar un poco más para ayudar al planeta.";
                 mensaje.className = "mensaje bajo";
             } else if (nivel == 5) {
-                mensaje.innerText = "🙂 Vas bien, pero aún puedes mejorar tus hábitos de reciclaje.";
+                mensaje.innerText = "Vas bien, pero aún puedes mejorar tus hábitos de reciclaje.";
                 mensaje.className = "mensaje";
             } else {
-                mensaje.innerText = "🎉 ¡Felicidades! Estás haciendo un gran trabajo reciclando.";
+                mensaje.innerText = "¡Felicidades! Estás haciendo un gran trabajo reciclando.";
                 mensaje.className = "mensaje alto";
             }
         }
 
-        // Mostrar mensaje inicial
         actualizarMensaje();
     </script>
     

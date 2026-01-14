@@ -8,53 +8,89 @@
 <body>
 
 <div class="header">
-    <h1>Quiz de reciclaje</h1>
+    <h1>PLANETA VIVO</h1>
 </div>
 
 <div class="contenedor">
 
-    <br><br>
+<form method="POST">
 
-    <form method="POST">
+<p><strong>1️⃣ ¿Dónde se recicla el plástico?</strong></p>
+<input type="radio" name="p1" value="a"> Contenedor amarillo<br>
+<input type="radio" name="p1" value="b"> Contenedor verde<br>
+<input type="radio" name="p1" value="c"> Contenedor azul<br><br>
 
-        <p><strong>1️⃣ ¿Dónde se recicla el plástico?</strong></p>
-        <input type="radio" name="p1" value="plastico"> Contenedor amarillo<br>
-        <input type="radio" name="p1" value="vidrio"> Contenedor verde<br>
-        <input type="radio" name="p1" value="papel"> Contenedor azul<br><br>
+<p><strong>2️⃣ ¿Qué color es el contenedor del papel?</strong></p>
+<input type="radio" name="p2" value="a"> Verde<br>
+<input type="radio" name="p2" value="b"> Azul<br>
+<input type="radio" name="p2" value="c"> Amarillo<br><br>
 
-        <p><strong>2️⃣ ¿Qué color es el contenedor del papel?</strong></p>
-        <input type="radio" name="p2" value="azul"> Azul<br>
-        <input type="radio" name="p2" value="verde"> Verde<br>
-        <input type="radio" name="p2" value="amarillo"> Amarillo<br><br>
+<p><strong>3️⃣ ¿Se deben lavar los envases antes de reciclar?</strong></p>
+<input type="radio" name="p3" value="a"> No importa<br>
+<input type="radio" name="p3" value="b"> Sí<br>
+<input type="radio" name="p3" value="c"> Nunca<br><br>
 
-        <p><strong>3️⃣ ¿Se debe reciclar un envase sucio?</strong></p>
-        <input type="radio" name="p3" value="si"> Sí<br>
-        <input type="radio" name="p3" value="no"> No<br><br>
+<p><strong>4️⃣ ¿Dónde va el vidrio?</strong></p>
+<input type="radio" name="p4" value="a"> Azul<br>
+<input type="radio" name="p4" value="b"> Amarillo<br>
+<input type="radio" name="p4" value="c"> Verde<br><br>
 
-        <button type="submit">Enviar respuestas</button>
+<p><strong>5️⃣ ¿Qué material NO se recicla?</strong></p>
+<input type="radio" name="p5" value="a"> Papel<br>
+<input type="radio" name="p5" value="b"> Vidrio<br>
+<input type="radio" name="p5" value="c"> Pañales<br><br>
 
-    </form>
+<p><strong>6️⃣ ¿Qué se recicla en el contenedor azul?</strong></p>
+<input type="radio" name="p6" value="a"> Plástico<br>
+<input type="radio" name="p6" value="b"> Papel y cartón<br>
+<input type="radio" name="p6" value="c"> Vidrio<br><br>
 
-    {% if resultado %}
-        <br>
-        <h2>✅ Resultado</h2>
-        <p>Obtuviste <strong>{{ puntaje }} / 3</strong> respuestas correctas.</p>
+<p><strong>7️⃣ ¿Qué beneficio tiene reciclar?</strong></p>
+<input type="radio" name="p7" value="a"> Contamina más<br>
+<input type="radio" name="p7" value="b"> Ahorra recursos<br>
+<input type="radio" name="p7" value="c"> No sirve<br><br>
 
-        {% if puntaje == 3 %}
-            <p>🌟 ¡Excelente! Sabes reciclar muy bien.</p>
-        {% elif puntaje == 2 %}
-            <p>👍 ¡Muy bien! Solo te faltó una.</p>
-        {% else %}
-            <p>📘 Sigue aprendiendo, cada intento cuenta.</p>
-        {% endif %}
-    {% endif %}
+<p><strong>8️⃣ ¿Dónde van las latas?</strong></p>
+<input type="radio" name="p8" value="a"> Verde<br>
+<input type="radio" name="p8" value="b"> Azul<br>
+<input type="radio" name="p8" value="c"> Amarillo<br><br>
+
+<p><strong>9️⃣ ¿Reciclar ayuda al planeta?</strong></p>
+<input type="radio" name="p9" value="a"> No<br>
+<input type="radio" name="p9" value="b"> A veces<br>
+<input type="radio" name="p9" value="c"> Sí<br><br>
+
+<p><strong>🔟 ¿Qué pasa si no reciclamos?</strong></p>
+<input type="radio" name="p10" value="a"> Nada<br>
+<input type="radio" name="p10" value="b"> Más contaminación<br>
+<input type="radio" name="p10" value="c"> Menos basura<br><br>
+
+<button type="submit">Enviar respuestas</button>
+</form>
+
+{% if resultado %}
+<hr>
+<h2>✅ Resultado</h2>
+<p>Obtuviste <strong>{{ puntaje }} / 10</strong> respuestas correctas.</p>
+
+{% if errores %}
+<h3>❌ Preguntas incorrectas:</h3>
+<ul>
+    {% for e in errores %}
+        <li>Pregunta {{ e }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p> Todas las respuestas son incorrectas.</p>
+{% endif %}
+{% endif %}
+
+<a href="/menu"><button>Regresar</button></a>
 
 </div>
-       
-
-    <a href="/menu"><button>Regresar</button></a>
 
 </body>
 </html>
+
 
 
