@@ -178,25 +178,43 @@ def retos():
         puntos=puntos_usuario
     )
 
-
-@app.route("/quiz", methods=["GET", "POST"])
+@app.route('/quiz', methods=['GET', 'POST'])
 def quiz():
-    puntaje = 0
     resultado = False
+    puntaje = 0
+    errores = []
 
-    if request.method == "POST":
+    respuestas_correctas = {
+        "p1": "a",
+        "p2": "b",
+        "p3": "b",
+        "p4": "c",
+        "p5": "c",
+        "p6": "b",
+        "p7": "b",
+        "p8": "c",
+        "p9": "c",
+        "p10": "b"
+    }
+
+    if request.method == 'POST':
         resultado = True
-        if request.form.get("p1") == "plastico":
-            puntaje += 1
-        if request.form.get("p2") == "azul":
-            puntaje += 1
-        if request.form.get("p3") == "no":
-            puntaje += 1
 
-        db.session.add(Quiz(puntaje=puntaje))
-        db.session.commit()
+        for pregunta, correcta in respuestas_correctas.items():
+            respuesta_usuario = request.form.get(pregunta)
 
-    return render_template("quiz.html", puntaje=puntaje, resultado=resultado)
+            if respuesta_usuario == correcta:
+                puntaje += 1
+            else:
+                errores.append(pregunta[-1])
+
+    return render_template(
+        'quiz.html',
+        resultado=resultado,
+        puntaje=puntaje,
+        errores=errores
+    )
+
 
 @app.route("/nivel_reciclaje")
 def nivel_reciclaje():
